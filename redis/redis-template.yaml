@@ -1,0 +1,49 @@
+kind: Template
+apiVersion: v1
+metadata:
+  creationTimestamp: null
+  name: redis-template
+  annotations:
+    iconClass: "icon-redis"
+    tags: "database,nosql"
+objects:
+  - kind: DeploymentConfig
+    apiVersion: v1
+    metadata:
+      name: "${REDIS_APP_NAME}"
+    spec:
+      replicas: 1
+      template: 
+        metadata:
+          labels:
+            name: redis
+        spec:
+          containers:
+          - name: redis
+            image: redis:5-alpine
+            ports:
+            - containerPort: 6379
+              protocol: TCP
+  
+  - kind: Service
+    apiVersion: v1
+    metadata:
+      name: "${REDIS_APP_NAME}"
+    spec:
+      ports:
+        - name: 6379-tcp
+          port: 6379
+          protocol: TCP
+          targetPort: 6379
+      selector:
+        name: ${REDIS_APP_NAME}
+      sessionAffinity: None
+      type: ClusterIP
+    status:
+      loadBalancer: {}
+
+parameters:
+  - name: REDIS_APP_NAME
+    description: Redis app name
+    value: redis
+    

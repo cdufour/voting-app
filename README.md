@@ -14,7 +14,17 @@ Les 5 composants de cette application seront déployés dans un cluster kubernet
 
 ## redis
 Création d'un déploiement et d'un service associé par import 
-dans le projet des fichiers yaml situés dans le dosser redis 
+dans le projet des fichiers yaml situés dans le dosser redis  
+
+**ou bien:**  
+
+Création d'une applicaiton Redis depuis la catalogue, après ajout d'un template personnalisé.  
+Ajout dans le catalogue du template __redis_template.ymal__  
+
+```
+oc login -u system:admin
+oc create -f redis-template.yaml -n <project_name>
+```
 
 ## vote
 Création d'une application Python depuis le catalogue.  

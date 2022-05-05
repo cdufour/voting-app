@@ -22,8 +22,12 @@ io.sockets.on('connection', function (socket) {
   });
 });
 
-var pool = new pg.Pool({
-  connectionString: 'postgres://postgres:postgres@db/postgres'
+const pool = new Pool({
+  user: 'postgres',
+  host: 'postgres',
+  database: 'postgres',
+  password: 'postgres',
+  port: 5432,
 });
 
 async.retry(

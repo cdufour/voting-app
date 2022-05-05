@@ -38,7 +38,7 @@ namespace Worker {
           string json = redis.ListLeftPopAsync("votes").Result;
           if (json != null) {
             var vote = JsonConvert.DeserializeAnonymousType(json, definition);
-            Console.WriteLine($ "Processing vote for '{vote.vote}' by '{vote.voter_id}'");
+            Console.WriteLine("Processing vote for '{vote.vote}' by '{vote.voter_id}'");
             // Reconnect DB if down
             if (!pgsql.State.Equals(System.Data.ConnectionState.Open)) {
               Console.WriteLine("Reconnecting DB");

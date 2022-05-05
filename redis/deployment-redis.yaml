@@ -1,0 +1,17 @@
+kind: DeploymentConfig
+apiVersion: v1
+metadata:
+  name: redis
+spec:
+  replicas: 1
+  template: 
+    metadata:
+      labels:
+        name: redis
+    spec:
+      containers:
+      - name: redis
+        image: redis:5-alpine
+        ports:
+        - containerPort: 6379
+          protocol: TCP

@@ -2,10 +2,12 @@ kind: Template
 apiVersion: v1
 metadata:
   creationTimestamp: null
-  name: redis-template
+  name: redis
   annotations:
     iconClass: "icon-redis"
     tags: "database,nosql"
+    description: Creates a Redis deployment + service
+    displayName: "Redis 5"
 objects:
   - kind: DeploymentConfig
     apiVersion: v1
@@ -44,6 +46,8 @@ objects:
 
 parameters:
   - name: REDIS_APP_NAME
+    displayName: Application Name
     description: Redis app name
     value: redis
+    required: true
     

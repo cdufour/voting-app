@@ -18,8 +18,8 @@ dans le projet des fichiers yaml situés dans le dosser redis
 
 **ou bien:**  
 
-Création d'une applicaiton Redis depuis la catalogue, après ajout d'un template personnalisé.  
-Ajout dans le catalogue du template __redis_template.ymal__  
+Création d'une application Redis depuis la catalogue, après ajout d'un template personnalisé.  
+Ajout dans le catalogue du template __redis_template.yaml__  
 
 ```
 oc login -u system:admin

@@ -8,7 +8,7 @@ Cette application se décompose ainsi:
 - __postgres__: serveur postgresql mémorisant de façon permanente les votes
 - __worker__: programme en boucle infinie assurant le relais entre redis et postgres 
 
-![Schéma](/assets/votin-app-schema.png)
+![Schéma](/assets/voting-app-schema.png)
 
 Les 5 composants de cette application seront déployés dans un cluster kubernetes/openshift.  
 
